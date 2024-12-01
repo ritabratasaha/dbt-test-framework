@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: src_customers
+    description: This table has basic information about a customer
+
+    columns:
+      - name: c_custkey
+        description: This is a unique identifier for a given customer
+        tags: ['postload','data_quality']
+        tests: 
+          - unique
+          - is_not_null
+      - name: c_mktsegment
+        description: This is market segment of a given customer
+        tags: ['postload','data_quality']
+        tests:
+          - is_not_null
+
+  - name: src_orders
+    tests:
+      - dbt_expectations.expect_table_columns_to_match_set:
+          name: dbt_expect_src_orders_columns
+          tags: ['preload','schema_check']
+          column_list: ["custkey","o_orderkey","o_orderdate","o_totalprice","o_orderstatus"]
+          
+    columns:
+      - name: o_orderstatus
+        tests:
+          - accepted_values:
+              name: value_src_orders_o_orderstatus
+              tags: ['postload','data_quality']
+              values: ['placed', 'shipped', 'completed', 'returned']
+
+
+
