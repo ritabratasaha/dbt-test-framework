@@ -20,7 +20,7 @@
 1. Setup the target env variables. Connection to Snowflake uses these variables.
 
     ```
-    export SNOWFLAKE_ACCOUNT='QDB88635'; export SNOWFLAKE_USER='developer';export SNOWFLAKE_PASSWORD='Hello!123';export SNOWFLAKE_ROLE='Accountadmin';
+    export SNOWFLAKE_ACCOUNT='xxxx'; export SNOWFLAKE_USER='xxxx';export SNOWFLAKE_PASSWORD='xxxx';export SNOWFLAKE_ROLE='Accountadmin';
     ```
 
 2. Create the target database objects
@@ -80,6 +80,6 @@
 
 ### Ref Artefacts:
 
-- https://medium.com/p/f14f6fb3a2cc/edit
+- https://medium.com/@ritabratasaha/create-a-complete-etl-test-suite-with-dbt-tests-f14f6fb3a2cc
 
 
